@@ -1,0 +1,23 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color:#222831;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(221, 221, 221);
+}
+
+header{
+    background-color: rgb(17, 23, 32);
+    color:rgb(250, 198, 80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin-bottom: 50px;
+}
