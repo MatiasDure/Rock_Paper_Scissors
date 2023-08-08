@@ -28,7 +28,12 @@ header{
     border: 1px solid aqua;
 }
 
-.plays .play
+.choiceImg
+{
+    width:150px;
+}
+
+.play, .choiceImg
 {
     background: rgb(250, 198, 80);
     border-radius: 20px;
@@ -37,4 +42,49 @@ header{
 .plays .play:hover
 {
     cursor: pointer;
+}
+
+/*-----------------Restart Pop up-------------------------*/
+.popUp-screen
+{
+    background-color: rgba(255, 255, 255, .4);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.popUp-box
+{
+    background-color: rgb(17, 23, 32);
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.popUp-box h1
+{
+    font-size: 45px;
+}
+
+.popUp-box button
+{
+    font-size: 20px;
+    background: rgb(250, 198, 80);
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    color:rgb(17, 23, 32);
+    margin-top: 80px;
+}
+
+.hidden 
+{
+    display:none;
 }

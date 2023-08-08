@@ -53,6 +53,7 @@ for(let i = 0; i < playElems.length; i++)
 
 plays.forEach(play => play.element.addEventListener("click", () => PlayRound(play)));
 
+//----------------------Game--------------------------
 //game info 
 const maxScore = 5;
 let playerScore = 0;
@@ -60,16 +61,24 @@ let computerScore = 0;
 
 function PlayRound(chosenPlay)
 {
+    let gameInfo = GameFinished();
     //someone already won
-    if(playerScore >= maxScore || ComputerScore >= maxScore) return;
+    if(gameInfo.end) return;
 
-    // console.log(chosenPlay);
-
-    //pc choice
     let compPlay = ComputerDecision();
+    
+    UpdateChoiceUI(chosenPlay, compPlay);
 
     //Check winner
     CheckWinner(chosenPlay, compPlay);
+
+    gameInfo = GameFinished();
+    //Restart pop up
+    if(gameInfo.end)
+    {
+        EnableRestart();
+        gameOutcome.innerHTML = gameInfo.info; 
+    } 
 }
 
 function CheckWinner(playerChoice, computerChoice)
@@ -82,22 +91,19 @@ function CheckWinner(playerChoice, computerChoice)
         case playerChoice.play:
             //tied
             tied = true;
-            console.log("Tie!");
             break;
         case playerChoice.strongAgainst:
-            //won
+            //player won
             won = true;
-            console.log("Won!");
             playerScore++;
             break;
         default:
-            //lost
-            console.log("Lost!");
+            //player lost
             computerScore++;
             break;
     }
 
-    //update ui
+    UpdateScoreUI();
 }
 
 function ComputerDecision()
@@ -106,4 +112,70 @@ function ComputerDecision()
     let ranNum = Math.floor(Math.random() * plays.length);
 
     return plays[ranNum];
+}
+
+function GameFinished() 
+{
+    let msg = "";
+    let finished = false;
+
+    if(playerScore >= maxScore)
+    {
+        msg = "You Won";
+        finished = true;
+    } 
+    else if(computerScore >= maxScore)
+    {
+        msg = "You Lost";
+        finished = true;
+    } 
+
+    return { end: finished, info: msg };
+}
+
+//-------------Restart--------------
+
+const restartPopUp = document.querySelector(".popUp-screen");
+const restartBtn = document.querySelector(".popUp-screen button");
+restartBtn.addEventListener("click", Restart);
+const gameOutcome = document.querySelector(".popUp-box h1");
+
+function EnableRestart()
+{
+    restartPopUp.classList.remove("hidden");
+}
+
+function Restart()
+{
+    playerScore = 0;
+    computerScore = 0;
+    UpdateScoreUI();
+    RestartChoiceUI();
+    restartPopUp.classList.add("hidden");
+}
+
+//-----------------UI--------------------
+const playerScoreUI = document.querySelector(".player-score");
+const computerScoreUI = document.querySelector(".computer-score");
+const playerChoiceImg = document.querySelector("div.player img");
+const computerChoiceImg = document.querySelector("div.computer img");
+const imgPath = "./images/";
+const resetImgPath = imgPath + "question.png";
+
+function UpdateScoreUI()
+{
+    playerScoreUI.innerHTML = playerScore;
+    computerScoreUI.innerHTML = computerScore;
+}
+
+function UpdateChoiceUI(playerChoice, computerChoice)
+{
+    playerChoiceImg.src = imgPath + playerChoice.play + ".png";
+    computerChoiceImg.src = imgPath + computerChoice.play + ".png";
+}
+
+function RestartChoiceUI()
+{
+    playerChoiceImg.src = resetImgPath;
+    computerChoiceImg.src = resetImgPath;
 }

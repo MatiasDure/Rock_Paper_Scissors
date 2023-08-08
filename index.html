@@ -8,41 +8,52 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="main-title">
-            <h1>ROCK PAPER SCISSORS</h1>
+    <div class="game">
+        <header>
+            <div class="main-title">
+                <h1>ROCK PAPER SCISSORS</h1>
+            </div>
+        </header>
+        <main>
+            <div class="info">
+                <h3>First to score 5 points wins</h3>
+            </div>
+            <div class="score">
+                <div class="player">
+                    <img class="choiceImg" src="images/question.png" alt="Player played"/>
+                    <p>Player: <span class="player-score">0</span></p>
+                </div>
+                <div class="computer">
+                    <img class="choiceImg" src="images/question.png" alt="Computer played"/>
+                    <p>Computer: <span class="computer-score">0</span></p>
+                </div>
+            </div>
+            <div class="plays">
+                <div class="play" data-value="rock">
+                    <img src="images/rock.png" alt="Rock Image"/>
+                </div>
+                <div class="play" data-value="paper">
+                    <img src="images/paper.png" alt="Paper Image"/>
+                </div>
+                <div class="play" data-value="scissors">
+                    <img src="images/scissors.png" alt="Scissors Image"/>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons">Rock paper scissors icons created by Cap Cool - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/fist" title="fist icons">Fist icons created by Cuputo - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/hand" title="hand icons">Hand icons created by berkahicon - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Muhammad Ali - Flaticon</a>
+        </footer>
+    </div>
+    <div class="popUp-screen hidden">
+        <div class="popUp-box">
+            <h1>You Lose</h1>
+            <button>
+                PLAY AGAIN
+            </button>
         </div>
-    </header>
-    <main>
-        <div class="info">
-            <h3>First to score 5 points wins</h3>
-        </div>
-        <div class="score">
-            <div class="player">
-                <img src="" alt="Player played"/>
-                <p>Player: <span class="player-score">0</span></p>
-            </div>
-            <div class="computer">
-                <img src="" alt="Computer played"/>
-                <p>Computer: <span class="computer-score">0</span></p>
-            </div>
-        </div>
-        <div class="plays">
-            <div class="play" data-value="rock">
-                <img src="images/fist.png" alt="Rock Image"/>
-            </div>
-            <div class="play" data-value="paper">
-                <img src="images/hand.png" alt="Paper Image"/>
-            </div>
-            <div class="play" data-value="scissors">
-                <img src="images/scissors.png" alt="Scissors Image"/>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <a href="https://www.flaticon.com/free-icons/rock-paper-scissors" title="rock paper scissors icons">Rock paper scissors icons created by Cap Cool - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/fist" title="fist icons">Fist icons created by Cuputo - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/hand" title="hand icons">Hand icons created by berkahicon - Flaticon</a>
-    </footer>
+    </div>
 </body>
 </html>
