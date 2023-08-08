@@ -21,3 +21,20 @@ header{
     height: 120px;
     margin-bottom: 50px;
 }
+
+.plays{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid aqua;
+}
+
+.plays .play
+{
+    background: rgb(250, 198, 80);
+    border-radius: 20px;
+}
+
+.plays .play:hover
+{
+    cursor: pointer;
+}
