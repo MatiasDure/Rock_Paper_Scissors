@@ -22,15 +22,36 @@ header{
     margin-bottom: 50px;
 }
 
+.info h3
+{
+    text-align: center;
+    font-size: 40px;
+}
+
+.score
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 100px 0;
+}
+
+.score p
+{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
 .plays{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid aqua;
+    flex-wrap: wrap;
+    margin-top: -10px;
 }
 
-.choiceImg
+.choiceImg, .play img
 {
-    width:150px;
+    width:200px;
 }
 
 .play, .choiceImg
@@ -39,9 +60,48 @@ header{
     border-radius: 20px;
 }
 
+.play
+{
+    margin-top: 20px;
+}
+
 .plays .play:hover
 {
     cursor: pointer;
+}
+
+a
+{
+    text-decoration: none;
+    color: white
+}
+
+ul
+{
+    list-style: none;
+}
+
+li
+{
+    margin-top:10px;
+}
+
+.credits h3
+{
+    color: rgb(250, 198, 80);
+}
+
+footer
+{
+    background-color: rgb(17, 23, 32);
+    padding: 30px 0 10px 10px;
+    margin-top: 40px;
+}
+
+footer h4
+{
+    margin-top: 20px;
+    text-align: center;
 }
 
 /*-----------------Restart Pop up-------------------------*/
@@ -53,7 +113,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
 
